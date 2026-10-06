@@ -129,7 +129,7 @@ export function Dashboard() {
         useAppStore
           .getState()
           .toast(
-            'Heads-up: Safari clears local site data after 7 days without a visit. Install CVAurum as an app or export a backup to keep your resumes safe.',
+            'Heads-up: Safari clears local site data after 7 days without a visit. Install this site as an app or export a backup to keep your resumes safe.',
             'info'
           )
       }
@@ -137,7 +137,7 @@ export function Dashboard() {
       /* never block the dashboard over a nudge */
     }
   }, [])
-  useTitle('Your Resumes · CVAurum')
+  useTitle('Your Resumes')
   const navigate = useNavigate()
   const library = useAppStore((s) => s.library)
   const libraryLoaded = useAppStore((s) => s.libraryLoaded)

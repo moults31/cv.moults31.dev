@@ -1,40 +1,62 @@
-# Deploying CVAurum (free, no backend)
+# Deploying cv.moults31.dev
 
-CVAurum is a fully static, client-side app — there is **no server to run**. That
-means you can host it for **$0** on any static host. `npm run build` produces a
-`dist/` folder; serve that folder anywhere.
+A fully static, client-side SPA. `npm run build` produces `dist/`; there is no
+server to run.
 
-## Recommended: Cloudflare (free, fast, custom domain)
+## Cloudflare Workers (recommended — `wrangler.jsonc` is set up for it)
 
-1. Push this repo to GitHub.
-2. Cloudflare dashboard → **Workers & Pages → Create → Connect to Git** → pick this repo.
-3. Build settings:
+1. Cloudflare dashboard → **Workers & Pages → Create → Workers → Connect to Git**, pick
+   `moults31/cv.moults31.dev`.
+2. Build settings:
    - **Build command:** `npm run build`
-   - **Build output directory:** `dist`
-4. Deploy. You get a free `https://<project>.workers.dev` (or `.pages.dev`) URL.
-5. (Optional) Add a custom domain in the project settings (~$8–12/yr for the
-   domain itself; the hosting stays free).
+   - **Deploy command:** `npx wrangler deploy`
+   - **Build variable:** `PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1` (Playwright is only used by the
+     repo's own image scripts, never by the build)
+3. Deploy. `wrangler.jsonc` serves `dist/` as static assets with SPA routing
+   (`not_found_handling: "single-page-application"`), and `_headers` carries the security
+   headers.
+4. **Custom domain:** Worker → **Settings → Domains & Routes → Add → Custom domain** →
+   `cv.moults31.dev`. Because `moults31.dev` is in the same account, the DNS record is created
+   automatically with TLS.
 
-[`wrangler.jsonc`](wrangler.jsonc) declares `dist/` as static assets and sets
-`not_found_handling: "single-page-application"`, so SPA deep links (`/resume/:id`,
-`/print/:id`) serve `index.html`. Security headers (CSP, etc.) come from
-[`public/_headers`](public/_headers).
+### Alternatively, from the terminal
 
-## Other static hosts
+```bash
+npx wrangler login
+npm run build
+npx wrangler deploy
+```
 
-These don't read `wrangler.jsonc`, so add a `public/_redirects` containing
-`/* /index.html 200` for SPA routing first:
+## Cloudflare Pages (if you prefer Pages)
 
-- **Cloudflare Pages** — create a **Pages** project (instead of the Worker above);
-  it honors `public/_headers` and `public/_redirects` natively.
-- **Netlify** — drag-and-drop `dist/` or connect Git. Free tier.
-- **Vercel** — import the repo; framework preset **Vite**. Free tier.
-- **GitHub Pages** — served from a subpath (`/<repo>/`). Set `base: '/<repo>/'`
-  in `vite.config.ts`, build, publish `dist/`, and add a `404.html` copy of
-  `index.html` for SPA routing.
+Pages ignores `wrangler.jsonc`, so first add `public/_redirects` containing:
 
-## Notes
+```
+/* /index.html 200
+```
 
-- Fonts are bundled (self-hosted under `public/fonts/`) — the app fetches **nothing** from any external server. (Regenerate with `node scripts/fetch-fonts.cjs` if the font registry changes.)
-- No environment variables or secrets are required to deploy.
-- Users' resume data lives in **their** browser (IndexedDB) — you never store it.
+then create a Pages project with build command `npm run build` and output directory `dist`.
+Pages honours `public/_headers`.
+
+## Apex → cv redirect
+
+In the `moults31.dev` zone: **Rules → Redirect Rules → Create**:
+
+- **When:** hostname is `moults31.dev` (add `www.moults31.dev` as a second rule if you want it)
+- **Then:** dynamic redirect to `https://cv.moults31.dev` + the incoming path, status **301**
+
+That keeps `moults31.dev` free for a future portfolio — when it exists, just delete the rule.
+
+## Email for `moults31@moults31.dev`
+
+Cloudflare dashboard → the `moults31.dev` zone → **Email → Email Routing → Enable**, then add a
+destination inbox and a custom address `moults31@moults31.dev` forwarding to it. Cloudflare
+creates the MX/SPF records for you. (Sending *from* the address needs an SMTP-capable mailbox;
+forwarding is enough for a résumé contact.)
+
+## Updating the résumé
+
+1. Open `https://cv.moults31.dev/app` (or `http://localhost:5173/app`) and edit. Content lives in
+   your browser's IndexedDB.
+2. **Export → JSON Resume**, then replace `public/resume.json` with the downloaded file.
+3. Commit and push. Cloudflare rebuilds automatically.
