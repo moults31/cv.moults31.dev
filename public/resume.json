@@ -1,12 +1,12 @@
 {
   "basics": {
     "name": "Zachary Moulton",
-    "label": "Firmware / Systems Software Engineer",
+    "label": "Firmware / System Software Engineer",
     "image": "",
     "email": "moults31@moults31.dev",
     "phone": "",
     "url": "https://github.com/moults31",
-    "summary": "Firmware and systems software engineer with 8+ years writing low-level C/C++ for custom silicon and SSD firmware — hardware block-level test infrastructure, embedded firmware, and cross-functional debug. Comfortable owning a codebase end to end, from bring-up to release. M.S. Computer Science (UIUC, 4.0) and B.A.Sc. Electrical Engineering (UBC).",
+    "summary": "Firmware and systems software engineer with 8+ years writing low-level C/C++ SSD firmware. Expert at finding the real bottlenecks and pitfalls, and fixing them before they cost the team. Enthusiastic about code quality and safety, internal tooling and automation, breaking down silos, and thinking outside the box.",
     "location": {
       "city": "Vancouver",
       "countryCode": "CA",
@@ -15,75 +15,50 @@
     "urlLabel": "GitHub",
     "profiles": [
       {
+        "id": "qh78p6qentnx",
         "network": "LinkedIn",
         "username": "moults31",
         "url": "https://www.linkedin.com/in/moults31/",
-        "label": "LinkedIn",
-        "id": "qh78p6qentnx"
+        "label": "LinkedIn"
       }
     ]
   },
   "work": [
     {
-      "name": "Solidigm",
+      "id": "op7jjivd94uu",
+      "name": "Solidigm (formerly Intel NSG)",
       "position": "Firmware Engineer",
       "url": "",
-      "location": "Vancouver, British Columbia, Canada",
-      "startDate": "2021-01",
+      "location": "Vancouver",
+      "startDate": "2018-06",
       "endDate": "",
-      "summary": "Intel NAND/SSD group, acquired and renamed Solidigm (SK hynix).",
+      "summary": "Writing firmware to serve the internal hardware (PCB design) team since 2021. Serving the Silicon Validation team (on contract) 2018-2021. Co-op/intern on the Firmware team Jan-Dec 2016.",
       "highlights": [
-        "[Carveout] Add 2–3 bullets on your Solidigm projects — what you built, the scale it ran at, and the measured impact."
-      ],
-      "id": "op7jjivd94uu"
-    },
-    {
-      "name": "Intel Corporation",
-      "position": "Embedded Systems Engineer",
-      "url": "",
-      "location": "Greater Vancouver Metropolitan Area",
-      "startDate": "2018-07",
-      "endDate": "2021-01",
-      "summary": "",
-      "highlights": [
-        "Designed and developed lightweight embedded software in C/C++/ARM for hardware block-level testing of an in-house ASIC.",
-        "Contributed to cross-functional task forces tackling high-profile issues alongside hardware and firmware engineers.",
-        "Built and debugged low-level test software with a small, high-velocity team using Git."
-      ],
-      "id": "i02wapo95ee1"
-    },
-    {
-      "name": "Intel Corporation",
-      "position": "Embedded Systems Engineer (Co-op)",
-      "url": "",
-      "location": "Greater Vancouver Metropolitan Area",
-      "startDate": "2016-01",
-      "endDate": "2016-12",
-      "summary": "",
-      "highlights": [
-        "Developed and debugged multithreaded, low-level firmware in C/C++ targeting a dual-core ARM Cortex-A15.",
-        "Integrated code cleanly with a large team’s codebase while solving complex problems independently.",
-        "Maintained company-wide firmware documentation under strict clarity and form requirements."
-      ],
-      "id": "o3iigykrovcx"
+        "Compiler migration: Saved $3,000,000 USD yearly (in license spend) by converting ~7M LOC C++ codebase from proprietary Arm toolchain to open-source Clang/LLVM. Bonus: it's safer and more performant! Better warnings, smaller binary output, later C++ version support, and richer static analyzer support - all fully taken advantage of.",
+        "C++ Code Quality: Integrated and enabled clang-tidy and clangsa, prioritized their reports, and am constantly working through them to prevent bug escapes. Same for Clang warnings. All enabled by the clang migration.",
+        "Internal custom CI solution: Designed and created a system that keeps the hardware team's firmware always ready. Due to the complexity of interdependent cross-repo firmware modules, and the orchestration of real heterogeneous embedded hardware targets in our lab farm, solutions like Github Actions are not expressive enough for our problem space. Jenkins is, but its error-encouraging design means downtime is inevitable, defeating our \"always-ready\" goal. So I made my own in Go. Bonus: a comfy CLI speeds up FW developer velocity by letting them iterate with real CI checks from their VS Code session.",
+        "Internal agent skills registry: Designed and created a company-wide skills registry inspired by skills.sh but with automated security scanning and guaranteed provenance",
+        "Internal git-subtree alternative: Designed and created a way to share C++ firmware modules between production codebases without violating internal style rules about git history. Implemented as a full, from-scratch subtree implementation (in Python) that tracks all metadata in commit messages."
+      ]
     }
   ],
   "volunteer": [],
   "education": [
     {
+      "id": "6mqgfctlxbm5",
       "institution": "University of Illinois Urbana-Champaign",
       "url": "",
       "area": "Computer Science",
       "studyType": "Master of Computer Science",
-      "location": "Urbana, IL",
+      "location": "Urbana, IL (Remote)",
       "startDate": "2020-09",
       "endDate": "2022-12",
       "score": "4.0 GPA",
-      "summary": "",
-      "courses": [],
-      "id": "6mqgfctlxbm5"
+      "summary": "Capstone: IoT project - all-in-one homebrew sensor. Github: https://github.com/moults31/hydra",
+      "courses": []
     },
     {
+      "id": "fnabczg0bty0",
       "institution": "The University of British Columbia",
       "url": "",
       "area": "Electrical and Electronics Engineering",
@@ -93,103 +68,154 @@
       "endDate": "2018-05",
       "score": "81.2 (A-)",
       "summary": "",
-      "courses": [],
-      "id": "fnabczg0bty0"
+      "courses": []
     }
   ],
   "awards": [],
-  "certificates": [],
+  "certificates": [
+    {
+      "id": "u06dfp4h62sg",
+      "name": "Stanford Machine Learning Certificate (xCS229i)",
+      "date": "2021-06",
+      "issuer": "Stanford University, Department of Computer Science",
+      "url": ""
+    }
+  ],
   "publications": [],
   "skills": [
     {
+      "id": "hadp6qgosfcp",
       "name": "Languages",
       "level": "",
       "keywords": [
         "C",
         "C++",
         "ARM Assembly",
-        "8051 Assembly",
-        "VHDL"
-      ],
-      "id": "hadp6qgosfcp"
+        "Go",
+        "Python",
+        "Rust (hobby-level)"
+      ]
     },
     {
-      "name": "Firmware & Embedded",
-      "level": "",
-      "keywords": [
-        "RTOS",
-        "Microcontrollers",
-        "Low-level debugging",
-        "ASIC hardware test",
-        "Hardware bring-up"
-      ],
-      "id": "7ypaxf2gyg78"
-    },
-    {
+      "id": "zg4m08w8wlnz",
       "name": "Tools",
       "level": "",
       "keywords": [
         "Git",
-        "LabVIEW"
-      ],
-      "id": "zg4m08w8wlnz"
+        "Docker",
+        "C++ build tools (CMake, make)",
+        "Task runners (mise, just, make)",
+        "Dependency managers (mise, uv, CMake)",
+        "Github Actions",
+        "Gitlab CI",
+        "Jenkins",
+        "Agent harnesses (Experience with all of Copilot, Claude Code, Codex, Cursor, OpenCode)"
+      ]
     },
     {
-      "name": "Storage / SSD",
+      "id": "7ypaxf2gyg78",
+      "name": "Firmware & Embedded",
       "level": "",
       "keywords": [
-        "[Carveout: add your Solidigm stack]"
-      ],
-      "id": "tbsva6j9uu17"
+        "Microcontrollers",
+        "Low-level debugging",
+        "Hardware bring-up",
+        "SystemC",
+        "NAND",
+        "DRAM",
+        "UART",
+        "JTAG/SWD",
+        "OpenOCD",
+        "gdb"
+      ]
     }
   ],
   "languages": [],
-  "interests": [],
+  "interests": [
+    {
+      "id": "3pwb34g18mp7",
+      "name": "Hobbies",
+      "keywords": [
+        "Cycling",
+        "Hockey",
+        "Motorsport (F1, simracing)",
+        "Homelab",
+        "Mechanical Keyboards"
+      ]
+    }
+  ],
   "references": [],
   "projects": [
     {
-      "name": "CNN + Reinforcement Learning",
-      "description": "[Carveout] One line on what this is and what you did.",
-      "url": "https://github.com/moults31/cnn_rl",
+      "id": "4haeaazt5cb1",
+      "name": "Tamagucci",
+      "description": "Low-power Tamagotchi-inspired game for an earring wearable",
+      "url": "https://tamagucci.chup.ca/",
       "startDate": "",
       "endDate": "",
       "highlights": [
-        "[Carveout] What you built, and what it achieved."
+        "Pure Rust (treating this project as a learning vehicle)",
+        "Targeting ESP32-C3",
+        "Off-target simulator is public at https://tamagucci.chup.ca/ running the same Rust code that runs on the ESP32 board, plus some extras"
       ],
-      "keywords": [],
-      "id": "11gco0ce57ab"
+      "keywords": []
     },
     {
-      "name": "Hydra",
-      "description": "[Carveout] One line on what this is and what you did.",
-      "url": "https://github.com/moults31/hydra",
+      "id": "do320hhme8k2",
+      "name": "Chonxy",
+      "description": "Friends-and-family (private) live-events shared streaming experience (web app)",
+      "url": "",
       "startDate": "",
       "endDate": "",
       "highlights": [
-        "[Carveout] What you built, and what it achieved."
+        "Backend: Go",
+        "Frontend: Dart/Flutter V1, replaced with React+Vite for V2",
+        "1000+ commits, ~50 users",
+        "Fun things: self-hosted on a mini-PC; exposed to public internet with Cloudflare Tunnel; SSO is provided by Google to only my allowlist; a native Fire Stick app is distributed; some video content from my HDD NAS is curated and playable; both backend and frontend are built in Docker and deployed on Kubernetes; CI is always green!"
       ],
-      "keywords": [],
-      "id": "n555n93jd3z8"
+      "keywords": []
     },
     {
-      "name": "[Carveout] Personal project",
-      "description": "[Add a personal project you want employers to see — a system, tool, or library.]",
-      "url": "https://github.com/moults31",
+      "id": "4gk06x3fqyw7",
+      "name": "hotdogride.ca",
+      "description": "Public showcase for a novelty bike ride to all the Costcos in town with friends!",
+      "url": "https://hotdogride.ca/",
       "startDate": "",
       "endDate": "",
       "highlights": [
-        "[What you built, and the result.]"
+        "Backend + Frontend both TypeScript (+ Astro)",
+        "Fully AI-written"
       ],
-      "keywords": [],
-      "id": "do320hhme8k2"
+      "keywords": []
+    },
+    {
+      "id": "bp9nsikdxhcv",
+      "name": "NHL Legacy Stack (WIP)",
+      "description": "A stack of projects that make it possible to create offline/asynchronous multiplayer NHL roster-manager-style games backed by NHL Legacy Edition",
+      "url": "",
+      "startDate": "",
+      "endDate": "",
+      "highlights": [
+        "The substrate: a natively recompilable version of the NHL Legacy Edition Xbox 360 game (not my project, just my fork: https://github.com/moults31/nhl-legacy-recomp)",
+        "A pure-Rust implementation of a reverse-engineered solution for writing and reading NHL Legacy's player roster data format https://github.com/moults31/nhl-db-studio-mule",
+        "A custom spec that provides a reasonable representation of player roster data that arbitrary other programs can target https://github.com/moults31/nhl-legacy-roster-spec",
+        "An example of such a program - a minimal web app that lets the user view and modify NHL team rosters, which can be imported/exported to the real NHL Legacy game. This web app proves the concept that a \"fantasy hockey\" or \"GM Connected\" style game could be built on top of our stack, with real on-ice gameplay included, for the first time ever. https://github.com/moults31/nhl-legacy-fantasy"
+      ],
+      "keywords": []
     }
   ],
-  "custom": [],
+  "custom": [
+    {
+      "id": "mlpfvqssixbr",
+      "name": "Custom Section",
+      "items": []
+    }
+  ],
   "meta": {
     "version": "v1.0.0",
-    "lastModified": "2026-10-06T04:29:27.531Z",
+    "lastModified": "2026-10-06T07:12:08.650Z",
     "cvaurum": {
-      "template": "sapphire",
+      "template": "terrace",
       "page": {
         "format": "A4",
         "margin": 13,
@@ -215,22 +241,24 @@
         }
       },
       "theme": {
-        "primary": "#1e3a8a",
-        "text": "#1b2330",
-        "muted": "#54607a",
-        "background": "#ffffff",
-        "sidebar": "#1e293b",
+        "primary": "#123d2e",
+        "text": "#182420",
+        "muted": "#5f6b66",
+        "background": "#f7f6f1",
+        "sidebar": "#0f172a",
         "sidebarText": "#e2e8f0",
-        "artBand": "none"
+        "gradientTo": "#0e7c86",
+        "artBand": "none",
+        "footer": "#111111"
       },
       "typography": {
-        "fontFamily": "Inter",
-        "headingFamily": "Inter",
-        "nameFamily": "Inter",
-        "fontSize": 9.7,
-        "lineHeight": 1.4,
+        "fontFamily": "Lato",
+        "headingFamily": "Chivo",
+        "nameFamily": "Chivo",
+        "fontSize": 10,
+        "lineHeight": 1.42,
         "letterSpacing": 0,
-        "headingScale": 1.5,
+        "headingScale": 1.05,
         "sectionTitleScale": 1.06,
         "headlineScale": 1.15,
         "contactScale": 0.95,
@@ -244,9 +272,9 @@
         "proficiency": "dots"
       },
       "layout": {
-        "columns": 2,
+        "columns": 1,
         "metaColumn": "none",
-        "headingPlacement": "above",
+        "headingPlacement": "side",
         "sideHeadingStyle": "rail",
         "levelPlacement": "end",
         "sectionFrame": "none",
@@ -254,33 +282,46 @@
         "sectionNumbers": false,
         "sectionNumberStyle": "padded",
         "sidebar": "left",
-        "sidebarWidth": 0.33,
+        "sidebarWidth": 0.34,
         "main": [
           "summary",
           "work",
-          "projects",
           "education",
+          "projects",
           "publications",
           "volunteer",
-          "references"
-        ],
-        "aside": [
-          "skills",
-          "languages",
           "certificates",
+          "references",
           "awards",
-          "interests"
+          "interests",
+          "custom-mlpfvqssixbr"
         ],
+        "aside": [],
         "footer": [],
         "pageFoot": false,
         "pageFrame": false,
         "pageGrid": false,
-        "hidden": [],
-        "headings": {},
-        "sectionSettings": {},
-        "sectionGap": 9,
-        "itemGap": 5,
-        "icons": true,
+        "hidden": [
+          "publications",
+          "volunteer",
+          "references",
+          "awards",
+          "custom-mlpfvqssixbr"
+        ],
+        "headings": {
+          "projects": "Hobby  Projects"
+        },
+        "sectionSettings": {
+          "skills": {
+            "skillsStyle": "rings"
+          },
+          "projects": {
+            "keepTogether": true
+          }
+        },
+        "sectionGap": 17,
+        "itemGap": 7,
+        "icons": false,
         "contactStyle": "inline",
         "contactPlacement": "below",
         "contactLinks": "ledger",
@@ -289,8 +330,8 @@
         "sectionIconStyle": "folio",
         "sectionIconSize": "m",
         "showPhoto": false,
-        "monogram": true,
-        "photoShape": "square",
+        "monogram": false,
+        "photoShape": "circle",
         "photoSize": "m",
         "photoAlign": "center"
       },
@@ -309,7 +350,21 @@
         "language": "en"
       },
       "title": "Zachary Moulton — Résumé",
-      "jobDescription": ""
+      "jobDescription": "",
+      "rich": {
+        "work.op7jjivd94uu.summary": "<div>Writing firmware to serve the internal hardware (PCB design) team since 2021. Serving the Silicon Validation team (on contract) 2018-2021. Co-op/intern on the Firmware team Jan-Dec 2016.</div>",
+        "work.op7jjivd94uu.highlights.0": "<b>Compiler migration</b>: Saved $3,000,000 USD yearly (in license spend) by converting ~7M LOC C++ codebase from proprietary Arm toolchain to open-source Clang/LLVM. Bonus: it's safer and more performant! Better warnings, smaller binary output, later C++ version support, and richer static analyzer support - all fully taken advantage of.&nbsp;",
+        "work.op7jjivd94uu.highlights.1": "<b>C++ Code Quality:</b>&nbsp;Integrated and enabled clang-tidy and clangsa, prioritized their reports, and am constantly working through them to prevent bug escapes. Same for Clang warnings. All enabled by the clang migration.&nbsp;&nbsp;",
+        "work.op7jjivd94uu.highlights.2": "I<b>nternal custom CI solution:</b> Designed and created a system that keeps the hardware team's firmware always ready. Due to the complexity of interdependent cross-repo firmware modules, and the orchestration of real heterogeneous embedded hardware targets in our lab farm, solutions like Github Actions are not expressive enough for our problem space. Jenkins is, but its error-encouraging design means downtime is inevitable, defeating our \"always-ready\" goal. So I made my own in Go. Bonus: a comfy CLI speeds up FW developer velocity by letting them iterate with real CI checks from their VS Code session.&nbsp;<b>&nbsp;</b>",
+        "work.op7jjivd94uu.highlights.3": "<b>Internal agent skills registry:</b>&nbsp;Designed and created a company-wide skills registry inspired by <a href=\"https://www.skills.sh/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">skills.sh</a>&nbsp;but with automated security scanning and guaranteed provenance&nbsp;",
+        "work.op7jjivd94uu.highlights.4": "<b>Internal git-subtree alternative: </b>Designed and created a way to share C++ firmware modules between production codebases without violating internal style rules about git history. Implemented as a full, from-scratch subtree implementation (in Python) that tracks all metadata in commit messages.",
+        "education.6mqgfctlxbm5.summary": "Capstone: IoT project - all-in-one homebrew sensor. Github: <a href=\"https://github.com/moults31/hydra\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">https://github.com/moults31/hydra</a>&nbsp;",
+        "projects.do320hhme8k2.highlights.1": "Frontend: Dart/Flutter V1, replaced with React+Vite for V2&nbsp;",
+        "projects.do320hhme8k2.highlights.3": "Fun things: self-hosted on a mini-PC; exposed to public internet with Cloudflare Tunnel; SSO is provided by Google to only my allowlist; a native Fire Stick app is distributed;&nbsp; some video content from my HDD NAS is curated and playable; both backend and frontend are built in Docker and deployed on Kubernetes; CI is always green!",
+        "projects.bp9nsikdxhcv.description": "A stack of projects that make it possible to create offline/asynchronous multiplayer NHL roster-manager-style games backed by NHL Legacy Edition&nbsp;",
+        "projects.bp9nsikdxhcv.highlights.0": "The substrate: a natively recompilable version of the <i>NHL Legacy Edition&nbsp; </i>Xbox 360 game (not my project, just my fork: https://github.com/moults31/nhl-legacy-recomp)<i>&nbsp;&nbsp;</i>",
+        "projects.bp9nsikdxhcv.highlights.3": "An example of such a program - a minimal web app that lets the user view and modify NHL team rosters, which can be imported/exported to the real NHL Legacy game. This web app proves the concept that a <a href=\"https://www.espn.com/fantasy/hockey/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">\"fantasy hockey\"</a>&nbsp;or \"<a href=\"https://gmconnected.com/\" target=\"_blank\" rel=\"noopener noreferrer nofollow\">GM Connected</a>\" style game could be built on top of our stack, with real on-ice gameplay included, for the first time ever.&nbsp; https://github.com/moults31/nhl-legacy-fantasy&nbsp;"
+      }
     }
   }
 }
