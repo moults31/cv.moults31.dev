@@ -103,13 +103,16 @@
       "keywords": [
         "Git",
         "Docker",
-        "C++ build tools (CMake, make)",
-        "Task runners (mise, just, make)",
-        "Dependency managers (mise, uv, CMake)",
         "Github Actions",
         "Gitlab CI",
         "Jenkins",
-        "Agent harnesses (Experience with all of Copilot, Claude Code, Codex, Cursor, OpenCode)"
+        "mise",
+        "CMake",
+        "make",
+        "Linux",
+        "bash",
+        "just",
+        "Copilot/Claude"
       ]
     },
     {
@@ -124,9 +127,7 @@
         "NAND",
         "DRAM",
         "UART",
-        "JTAG/SWD",
-        "OpenOCD",
-        "gdb"
+        "JTAG/SWD"
       ]
     }
   ],
@@ -204,16 +205,10 @@
       "keywords": []
     }
   ],
-  "custom": [
-    {
-      "id": "mlpfvqssixbr",
-      "name": "Custom Section",
-      "items": []
-    }
-  ],
+  "custom": [],
   "meta": {
     "version": "v1.0.0",
-    "lastModified": "2026-10-06T07:12:08.650Z",
+    "lastModified": "2026-10-06T07:32:19.980Z",
     "cvaurum": {
       "template": "terrace",
       "page": {
@@ -223,7 +218,7 @@
         "breaks": [],
         "keepEntriesWhole": false,
         "fit": {
-          "target": 1,
+          "target": 2,
           "minBody": null,
           "priority": "both",
           "mode": "pages",
@@ -255,8 +250,8 @@
         "fontFamily": "Lato",
         "headingFamily": "Chivo",
         "nameFamily": "Chivo",
-        "fontSize": 10,
-        "lineHeight": 1.42,
+        "fontSize": 8,
+        "lineHeight": 1.36,
         "letterSpacing": 0,
         "headingScale": 1.05,
         "sectionTitleScale": 1.06,
@@ -287,14 +282,10 @@
           "summary",
           "work",
           "education",
-          "projects",
-          "publications",
-          "volunteer",
           "certificates",
-          "references",
-          "awards",
-          "interests",
-          "custom-mlpfvqssixbr"
+          "skills",
+          "projects",
+          "interests"
         ],
         "aside": [],
         "footer": [],
@@ -302,24 +293,33 @@
         "pageFrame": false,
         "pageGrid": false,
         "hidden": [
+          "certificates",
           "publications",
           "volunteer",
           "references",
-          "awards",
-          "custom-mlpfvqssixbr"
+          "awards"
         ],
         "headings": {
-          "projects": "Hobby  Projects"
+          "projects": "Hobby  Projects",
+          "certificates": "Certs"
         },
         "sectionSettings": {
           "skills": {
-            "skillsStyle": "rings"
+            "skillsStyle": "rings",
+            "keepTogether": true
           },
           "projects": {
+            "keepTogether": true,
+            "icon": "projects"
+          },
+          "custom-lajo9v9m4lqg": {
+            "url": "asddasfdf"
+          },
+          "education": {
             "keepTogether": true
           }
         },
-        "sectionGap": 17,
+        "sectionGap": 21,
         "itemGap": 7,
         "icons": false,
         "contactStyle": "inline",
