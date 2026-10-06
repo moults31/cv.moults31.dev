@@ -1,23 +1,17 @@
 {
-  // CVAurum is a static, client-side SPA — no Worker code, just the built assets.
-  // This config makes `wrangler deploy` upload dist/ as static assets (with SPA
-  // routing), so it does NOT try to auto-configure the Vite plugin (which would
-  // require Vite >= 6). `dist/_headers` (CSP) is served from the assets directory.
-  // `name` must match the Cloudflare Worker this repo deploys to (prod.<sub>.workers.dev).
-  "name": "prod",
+  // The personal résumé site: a static, client-side SPA — no Worker code, just
+  // the built assets. `name` must match the Cloudflare Worker this repo deploys
+  // to (cv-moults31.<account>.workers.dev).
+  "name": "cv-moults31",
   "compatibility_date": "2025-06-01",
-  // Serve ONLY the custom domain (cvaurum.com). Without these, every deploy
-  // also publishes the prod.<sub>.workers.dev copy of the site, which Google
-  // can index as a duplicate and users can land on by accident.
+  // Serve ONLY the custom domain (cv.moults31.dev). Without these, every deploy
+  // also publishes the <name>.<sub>.workers.dev copy of the site.
   "workers_dev": false,
   "preview_urls": false,
   "assets": {
     "directory": "./dist",
     "not_found_handling": "single-page-application"
   },
-  // Static-asset Worker — no app code to debug, and Cloudflare Analytics already
-  // shows traffic/errors. Keep observability off so deploys stay consistent (and
-  // the dashboard stops prompting). Set "enabled": true if you ever want request logs.
   "observability": {
     "enabled": false
   }

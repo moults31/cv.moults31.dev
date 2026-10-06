@@ -1,70 +1,9 @@
-# Security headers for Cloudflare Pages (and Netlify) — applied to every route.
-# CSP also hard-enforces the privacy promise: connect-src 'self' means the app
-# can make NO external network requests, even if a future bug tried to.
-# Delivered as real HTTP headers so header-only directives (frame-ancestors)
-# take effect. The build ships no inline executable JS, so script-src 'self'
-# needs no 'unsafe-inline'; inline styles (boot splash + React style props) need
-# 'unsafe-inline' under style-src only.
-# Machine-reader discovery on the landing page (RFC 8288 / RFC 9727): the
-# API catalog (which says there is no API), the description, the Markdown
-# twin. Vary: Accept because the host's Markdown-for-agents feature answers
-# a request with Accept: text/markdown from the same URL (a dashboard
-# switch on Cloudflare; the .md twins beside each page are always there).
-/
-  Link: </.well-known/api-catalog>; rel="api-catalog", </llms.txt>; rel="describedby"; type="text/plain", </index.md>; rel="alternate"; type="text/markdown"
-  Vary: Accept
-/templates
-  Vary: Accept
-/templates/*
-  Vary: Accept
-/examples
-  Vary: Accept
-/examples/*
-  Vary: Accept
-/prompts
-  Vary: Accept
-# The prompt library has a Markdown twin beside it (/prompts.md) like every
-# other public page, so it takes the same Vary.
-/prompts
-  Vary: Accept
-# The pictures of résumés: the full-size page images (/img/templates/<id>.webp,
-# /img/examples/<slug>.webp) and the share cards (/og/<id>.jpg,
-# /og/examples/<slug>.jpg). 350 files — 17.1 MB of page images plus the smaller
-# cards — regenerated only when a design or a sample is redrawn.
-#
-# Not `immutable`, deliberately. These URLs are addressed by the design's id or
-# the sample's slug, NOT by a hash of their bytes, so the same URL really does
-# serve different pixels after a design is retouched — and `immutable` tells a
-# browser not to revalidate even on a reload, which would strand a reader on
-# last year's picture for the whole max-age.
-#
-# A week fresh, then a month of stale-while-revalidate: a repeat visitor within
-# the week pays nothing; between day 7 and day 37 the cached copy is shown
-# instantly while the new one is fetched behind it, so a regenerated image
-# reaches everyone within one more page view rather than on a year's delay;
-# after that it is an ordinary conditional request. Crawlers and the link-
-# preview fetchers ignore stale-while-revalidate and simply honour the week.
-/img/*
-  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
-/og/*
-  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
-# Every Markdown file - the twins beside the public pages, SKILL.md, auth.md -
-# goes out as plain text. The host labels .md as text/markdown, and some
-# assistants' page readers refuse that type outright ("Unsupported
-# content-type: text/markdown"), so they could not read the very files written
-# for them. Plain text is what every reader accepts; the words are the same.
-# The charset is stated because the files carry accented letters (résumé) and
-# a reader left to guess reads them as mojibake.
-/*.md
-  Content-Type: text/plain; charset=utf-8
-/llms.txt
-  Content-Type: text/plain; charset=utf-8
-/llms-full.txt
-  Content-Type: text/plain; charset=utf-8
-/.well-known/api-catalog
-  Content-Type: application/linkset+json
-/.well-known/agent-skills/index.json
-  Content-Type: application/json
+# Security headers — applied to every route.
+# CSP hard-enforces the no-tracking promise: connect-src 'self' means the page
+# can make NO external network requests (the résumé JSON is same-origin).
+# The build ships no inline executable JS, so script-src 'self' needs no
+# 'unsafe-inline'; the boot splash and React style props need 'unsafe-inline'
+# under style-src only.
 /*
   Content-Security-Policy: default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload

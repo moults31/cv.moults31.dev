@@ -1,18 +1,18 @@
 {
-  "name": "cvaurum",
+  "name": "cv-moults31",
   "private": true,
   "version": "3.0.0",
   "type": "module",
-  "description": "CVAurum — the open-source resume studio. Beautiful, ATS-ready resumes, 100% local and private. No account, no server, no tracking.",
+  "description": "Zachary Moulton's personal résumé site — a lean fork of CVAurum that serves one page with a client-side PDF export.",
   "license": "AGPL-3.0-only",
-  "author": "akhil-dara",
-  "homepage": "https://github.com/akhil-dara/cvaurum#readme",
+  "author": "Zachary Moulton",
+  "homepage": "https://github.com/moults31/cv.moults31.dev#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/akhil-dara/cvaurum.git"
+    "url": "git+https://github.com/moults31/cv.moults31.dev.git"
   },
   "bugs": {
-    "url": "https://github.com/akhil-dara/cvaurum/issues"
+    "url": "https://github.com/moults31/cv.moults31.dev/issues"
   },
   "keywords": [
     "resume",

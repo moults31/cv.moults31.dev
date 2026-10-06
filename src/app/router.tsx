@@ -1,9 +1,7 @@
 import { Component, lazy, Suspense, useEffect, type ComponentType, type ReactNode } from 'react'
-import { createBrowserRouter, useRouteError } from 'react-router-dom'
+import { createBrowserRouter, Navigate, useRouteError } from 'react-router-dom'
 import { RootLayout } from './RootLayout'
-import { Landing } from '@/routes/Landing'
-import { NotFound } from '@/routes/NotFound'
-import { GUIDES } from '@/data/guides'
+import { ResumeView } from '@/routes/ResumeView'
 
 const RELOAD_KEY = 'cvaurum:chunk-reload'
 
@@ -45,18 +43,12 @@ function lazyRoute<T extends { default: ComponentType<unknown> }>(factory: () =>
   })
 }
 
-// Heavy routes are code-split so the homepage loads instantly.
+// The editor is heavy and only ever reached from the dashboard, so it stays
+// code-split. The public résumé view is eager: it is the page most visitors
+// land on, and a lazy chunk would only add a flash of nothing.
 const Dashboard = lazyRoute(() => import('@/routes/Dashboard').then((m) => ({ default: m.Dashboard })))
-const TemplatesPage = lazyRoute(() => import('@/routes/Templates').then((m) => ({ default: m.Templates })))
-const TemplatePage = lazyRoute(() => import('@/routes/TemplatePage').then((m) => ({ default: m.TemplatePage })))
-const ExamplesPage = lazyRoute(() => import('@/routes/Examples').then((m) => ({ default: m.Examples })))
-const ExamplePage = lazyRoute(() => import('@/routes/ExamplePage').then((m) => ({ default: m.ExamplePage })))
-const PromptsPage = lazyRoute(() => import('@/routes/Prompts').then((m) => ({ default: m.Prompts })))
-const GuidePage = lazyRoute(() => import('@/routes/Guide').then((m) => ({ default: m.Guide })))
 const EditorRoute = lazyRoute(() => import('@/routes/EditorRoute').then((m) => ({ default: m.EditorRoute })))
-const Tracker = lazyRoute(() => import('@/routes/Tracker').then((m) => ({ default: m.Tracker })))
 const PrintPage = lazyRoute(() => import('@/routes/PrintPage').then((m) => ({ default: m.PrintPage })))
-const ShareReceive = lazyRoute(() => import('@/routes/ShareReceive').then((m) => ({ default: m.ShareReceive })))
 
 function Loader() {
   return (
@@ -71,9 +63,6 @@ function FailedToLoad() {
     sessionStorage.removeItem(RELOAD_KEY)
     window.location.reload()
   }
-  // The root layout removes the boot splash when it mounts, and an error at
-  // the root replaces the layout, so this card sat underneath the splash
-  // and the visitor saw "Loading CVAurum..." for ever.
   useEffect(() => {
     document.getElementById('boot-splash')?.remove()
   }, [])
@@ -128,39 +117,22 @@ function RouteError() {
   return <FailedToLoad />
 }
 
+/**
+ * The personal site: one public résumé at `/`, the editor behind `/app`, and a
+ * chrome-free print page. Every public marketing route the upstream project
+ * shipped has been removed; an unknown address simply lands on the résumé.
+ */
 export const router = createBrowserRouter([
+  { path: '/', element: <ResumeView />, errorElement: <RouteError /> },
+  // Standalone, chrome-free page used for native "Save as PDF".
+  { path: '/print/:id', element: s(<PrintPage />), errorElement: <RouteError /> },
   {
     element: <RootLayout />,
     errorElement: <RouteError />,
     children: [
-      { path: '/', element: <Landing /> },
-      { path: '/templates', element: s(<TemplatesPage />) },
-      // One indexable page per design — the phrase people search is the
-      // template's name, which the gallery alone can never rank for.
-      { path: '/templates/:id', element: s(<TemplatePage />) },
-      { path: '/examples', element: s(<ExamplesPage />) },
-      // One indexable page per sample - "data analyst resume example" is the
-      // phrase people type, and the library alone can never rank for it.
-      { path: '/examples/:slug', element: s(<ExamplePage />) },
-      // Prompts to hand to an assistant, whose answers this app imports —
-      // public, indexable, and the way in for someone whose history is in a
-      // chat window rather than in a file.
-      { path: '/prompts', element: s(<PromptsPage />) },
-      // One page per search question - "free resume builder", "ATS resume
-      // checker", "resume builder no sign up" - answered in full
-      // (src/data/guides.ts). Listed by slug, not matched by a pattern, so a
-      // mistyped address is still a 404.
-      ...GUIDES.map((g) => ({ path: `/${g.slug}`, element: s(<GuidePage />) })),
       { path: '/app', element: s(<Dashboard />) },
       { path: '/resume/:id', element: s(<EditorRoute />) },
-      { path: '/tracker', element: s(<Tracker />) },
-      { path: '/r', element: s(<ShareReceive />) },
-      // A wrong address is not an error: it gets its own page, inside the
-      // layout (so the boot splash goes and the toaster works), not the
-      // "this part didn't load" card meant for a chunk that failed to fetch.
-      { path: '*', element: <NotFound /> },
+      { path: '*', element: <Navigate to="/" replace /> },
     ],
   },
-  // Standalone, chrome-free page used for native "Save as PDF".
-  { path: '/print/:id', element: s(<PrintPage />), errorElement: <RouteError /> },
 ])

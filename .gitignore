@@ -18,6 +18,7 @@ pnpm-debug.log*
 # Local scratch / notes (kept out of the repo; patterns stay generic on purpose)
 /_local/
 *.notes.md
+.openchamber/
 
 # Exported resumes created while testing (PDF/Word/JSON land in the repo root)
 /*.pdf

@@ -1,0 +1,315 @@
+{
+  "basics": {
+    "name": "Zachary Moulton",
+    "label": "Firmware / Systems Software Engineer",
+    "image": "",
+    "email": "moults31@moults31.dev",
+    "phone": "",
+    "url": "https://github.com/moults31",
+    "summary": "Firmware and systems software engineer with 8+ years writing low-level C/C++ for custom silicon and SSD firmware — hardware block-level test infrastructure, embedded firmware, and cross-functional debug. Comfortable owning a codebase end to end, from bring-up to release. M.S. Computer Science (UIUC, 4.0) and B.A.Sc. Electrical Engineering (UBC).",
+    "location": {
+      "city": "Vancouver",
+      "countryCode": "CA",
+      "region": "British Columbia"
+    },
+    "urlLabel": "GitHub",
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "moults31",
+        "url": "https://www.linkedin.com/in/moults31/",
+        "label": "LinkedIn",
+        "id": "qh78p6qentnx"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Solidigm",
+      "position": "Firmware Engineer",
+      "url": "",
+      "location": "Vancouver, British Columbia, Canada",
+      "startDate": "2021-01",
+      "endDate": "",
+      "summary": "Intel NAND/SSD group, acquired and renamed Solidigm (SK hynix).",
+      "highlights": [
+        "[Carveout] Add 2–3 bullets on your Solidigm projects — what you built, the scale it ran at, and the measured impact."
+      ],
+      "id": "op7jjivd94uu"
+    },
+    {
+      "name": "Intel Corporation",
+      "position": "Embedded Systems Engineer",
+      "url": "",
+      "location": "Greater Vancouver Metropolitan Area",
+      "startDate": "2018-07",
+      "endDate": "2021-01",
+      "summary": "",
+      "highlights": [
+        "Designed and developed lightweight embedded software in C/C++/ARM for hardware block-level testing of an in-house ASIC.",
+        "Contributed to cross-functional task forces tackling high-profile issues alongside hardware and firmware engineers.",
+        "Built and debugged low-level test software with a small, high-velocity team using Git."
+      ],
+      "id": "i02wapo95ee1"
+    },
+    {
+      "name": "Intel Corporation",
+      "position": "Embedded Systems Engineer (Co-op)",
+      "url": "",
+      "location": "Greater Vancouver Metropolitan Area",
+      "startDate": "2016-01",
+      "endDate": "2016-12",
+      "summary": "",
+      "highlights": [
+        "Developed and debugged multithreaded, low-level firmware in C/C++ targeting a dual-core ARM Cortex-A15.",
+        "Integrated code cleanly with a large team’s codebase while solving complex problems independently.",
+        "Maintained company-wide firmware documentation under strict clarity and form requirements."
+      ],
+      "id": "o3iigykrovcx"
+    }
+  ],
+  "volunteer": [],
+  "education": [
+    {
+      "institution": "University of Illinois Urbana-Champaign",
+      "url": "",
+      "area": "Computer Science",
+      "studyType": "Master of Computer Science",
+      "location": "Urbana, IL",
+      "startDate": "2020-09",
+      "endDate": "2022-12",
+      "score": "4.0 GPA",
+      "summary": "",
+      "courses": [],
+      "id": "6mqgfctlxbm5"
+    },
+    {
+      "institution": "The University of British Columbia",
+      "url": "",
+      "area": "Electrical and Electronics Engineering",
+      "studyType": "Bachelor of Applied Science (B.A.Sc.)",
+      "location": "Vancouver, BC",
+      "startDate": "2013-09",
+      "endDate": "2018-05",
+      "score": "81.2 (A-)",
+      "summary": "",
+      "courses": [],
+      "id": "fnabczg0bty0"
+    }
+  ],
+  "awards": [],
+  "certificates": [],
+  "publications": [],
+  "skills": [
+    {
+      "name": "Languages",
+      "level": "",
+      "keywords": [
+        "C",
+        "C++",
+        "ARM Assembly",
+        "8051 Assembly",
+        "VHDL"
+      ],
+      "id": "hadp6qgosfcp"
+    },
+    {
+      "name": "Firmware & Embedded",
+      "level": "",
+      "keywords": [
+        "RTOS",
+        "Microcontrollers",
+        "Low-level debugging",
+        "ASIC hardware test",
+        "Hardware bring-up"
+      ],
+      "id": "7ypaxf2gyg78"
+    },
+    {
+      "name": "Tools",
+      "level": "",
+      "keywords": [
+        "Git",
+        "LabVIEW"
+      ],
+      "id": "zg4m08w8wlnz"
+    },
+    {
+      "name": "Storage / SSD",
+      "level": "",
+      "keywords": [
+        "[Carveout: add your Solidigm stack]"
+      ],
+      "id": "tbsva6j9uu17"
+    }
+  ],
+  "languages": [],
+  "interests": [],
+  "references": [],
+  "projects": [
+    {
+      "name": "CNN + Reinforcement Learning",
+      "description": "[Carveout] One line on what this is and what you did.",
+      "url": "https://github.com/moults31/cnn_rl",
+      "startDate": "",
+      "endDate": "",
+      "highlights": [
+        "[Carveout] What you built, and what it achieved."
+      ],
+      "keywords": [],
+      "id": "11gco0ce57ab"
+    },
+    {
+      "name": "Hydra",
+      "description": "[Carveout] One line on what this is and what you did.",
+      "url": "https://github.com/moults31/hydra",
+      "startDate": "",
+      "endDate": "",
+      "highlights": [
+        "[Carveout] What you built, and what it achieved."
+      ],
+      "keywords": [],
+      "id": "n555n93jd3z8"
+    },
+    {
+      "name": "[Carveout] Personal project",
+      "description": "[Add a personal project you want employers to see — a system, tool, or library.]",
+      "url": "https://github.com/moults31",
+      "startDate": "",
+      "endDate": "",
+      "highlights": [
+        "[What you built, and the result.]"
+      ],
+      "keywords": [],
+      "id": "do320hhme8k2"
+    }
+  ],
+  "custom": [],
+  "meta": {
+    "version": "v1.0.0",
+    "lastModified": "2026-10-06T04:29:27.531Z",
+    "cvaurum": {
+      "template": "sapphire",
+      "page": {
+        "format": "A4",
+        "margin": 13,
+        "autoFit": true,
+        "breaks": [],
+        "keepEntriesWhole": false,
+        "fit": {
+          "target": 1,
+          "minBody": null,
+          "priority": "both",
+          "mode": "pages",
+          "minBodyBy": "author",
+          "keptPages": null,
+          "relaxedFrom": null,
+          "fromExample": false,
+          "lock": {
+            "name": false,
+            "headline": false,
+            "contacts": false,
+            "sectionGap": false,
+            "leading": false
+          }
+        }
+      },
+      "theme": {
+        "primary": "#1e3a8a",
+        "text": "#1b2330",
+        "muted": "#54607a",
+        "background": "#ffffff",
+        "sidebar": "#1e293b",
+        "sidebarText": "#e2e8f0",
+        "artBand": "none"
+      },
+      "typography": {
+        "fontFamily": "Inter",
+        "headingFamily": "Inter",
+        "nameFamily": "Inter",
+        "fontSize": 9.7,
+        "lineHeight": 1.4,
+        "letterSpacing": 0,
+        "headingScale": 1.5,
+        "sectionTitleScale": 1.06,
+        "headlineScale": 1.15,
+        "contactScale": 0.95,
+        "align": "left",
+        "uppercaseHeadings": true,
+        "headingGap": 1,
+        "bulletStyle": "disc",
+        "bulletIndent": 1.05,
+        "bulletGap": 0.2,
+        "bulletSize": 1,
+        "proficiency": "dots"
+      },
+      "layout": {
+        "columns": 2,
+        "metaColumn": "none",
+        "headingPlacement": "above",
+        "sideHeadingStyle": "rail",
+        "levelPlacement": "end",
+        "sectionFrame": "none",
+        "stats": false,
+        "sectionNumbers": false,
+        "sectionNumberStyle": "padded",
+        "sidebar": "left",
+        "sidebarWidth": 0.33,
+        "main": [
+          "summary",
+          "work",
+          "projects",
+          "education",
+          "publications",
+          "volunteer",
+          "references"
+        ],
+        "aside": [
+          "skills",
+          "languages",
+          "certificates",
+          "awards",
+          "interests"
+        ],
+        "footer": [],
+        "pageFoot": false,
+        "pageFrame": false,
+        "pageGrid": false,
+        "hidden": [],
+        "headings": {},
+        "sectionSettings": {},
+        "sectionGap": 9,
+        "itemGap": 5,
+        "icons": true,
+        "contactStyle": "inline",
+        "contactPlacement": "below",
+        "contactLinks": "ledger",
+        "contactSeparator": "none",
+        "keywordSeparator": "middot",
+        "sectionIconStyle": "folio",
+        "sectionIconSize": "m",
+        "showPhoto": false,
+        "monogram": true,
+        "photoShape": "square",
+        "photoSize": "m",
+        "photoAlign": "center"
+      },
+      "links": {
+        "display": "pretty",
+        "underline": false,
+        "clickable": true,
+        "style": "tag"
+      },
+      "dates": {
+        "month": "short",
+        "separator": "emdash",
+        "present": "Present",
+        "expected": "Expected",
+        "pursuing": "Pursuing",
+        "language": "en"
+      },
+      "title": "Zachary Moulton — Résumé",
+      "jobDescription": ""
+    }
+  }
+}

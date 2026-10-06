@@ -308,20 +308,21 @@ export default defineConfig({
   assetsInclude: ['**/*.icc'],
   plugins: [
     react(),
-    seoPages(),
-    machineReadersDev(),
+    // The upstream project's SEO / pre-render plugins are deliberately not
+    // registered here: this fork serves a single résumé page, not a marketing
+    // site (see README).
     VitePWA({
       registerType: 'prompt',
       injectRegister: 'auto',
       includeAssets: ['favicon.svg', 'icon.svg'],
       manifest: {
         id: '/',
-        name: 'CVAurum — Free Open-Source Resume Builder',
-        short_name: 'CVAurum',
-        description: 'Free, open-source, 100% local resume builder. 58 ATS-ready templates, a built-in ATS score, PDF résumé import, and PDF / Word / JSON export — no account, fully offline.',
-        categories: ['productivity', 'business', 'utilities'],
-        theme_color: '#d4982f',
-        background_color: '#0b0f1a',
+        name: 'Zachary Moulton — Résumé',
+        short_name: 'Z. Moulton',
+        description: 'Zachary Moulton — firmware / systems software engineer. Résumé and PDF.',
+        categories: ['business'],
+        theme_color: '#1e293b',
+        background_color: '#f7f7f8',
         display: 'standalone',
         start_url: '/',
         scope: '/',
@@ -465,9 +466,10 @@ export default defineConfig({
         // Safe beside registerType 'prompt': a worker only claims when there
         // is no previous one to displace; an UPDATE still waits for the prompt.
         clientsClaim: true,
-        // The plain shell, not index.html: that one carries the landing
-        // page's content in #root, which would flash inside /resume/<id>.
-        navigateFallback: '/shell.html',
+        // Our own minimal shell: the upstream landing content is not injected
+        // here (the SEO plugin that injected it is not registered), so
+        // index.html is safe to serve for every client-side route.
+        navigateFallback: '/index.html',
         // The print route renders client-side; never serve the SPA shell for it from cache wrongly.
         // A path that names a file (llms.txt, robots.txt, sitemap.xml, an
         // image) is a file, not a page: with the worker installed, typing

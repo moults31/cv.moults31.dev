@@ -2,258 +2,98 @@
 <html lang="en" class="h-full">
   <head>
     <meta charset="UTF-8" />
-    <!-- Favicons. /favicon.ico (multi-size) is what Google most reliably picks
-         up for the search-result icon; SVG + PNG cover modern browsers. -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
-    <!-- 192px (multiple of 48) — Google's preferred favicon size for search results. -->
-    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
     <link rel="apple-touch-icon" href="/icon-192.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <!-- Installable web app (Add to Home Screen on iOS/Android) -->
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="CVAurum" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <!-- Catch the install prompt before the app bundle loads (see the file). -->
-    <script src="/pwa-install.js"></script>
-
-    <!-- LCP: the UI font renders the hero headline — fetch it before CSS asks. -->
-    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/inter-UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" />
-
-    <!-- Primary SEO. Canonical host is https://cvaurum.com (custom domain on
-         Cloudflare Pages). If the domain changes, update it in index.html,
-         public/robots.txt and public/sitemap.xml. -->
-    <title>Free Open-Source ATS Resume Builder — CVAurum</title>
-    <meta name="description" content="Free, open-source résumé builder in your browser: 75 templates, an ATS check, and accessible PDF/UA export with WCAG AA contrast. No sign-up, no server." />
-    <meta name="keywords" content="free resume builder, open source resume builder, private resume builder, offline resume builder, ATS resume builder, resume builder no sign up, local resume builder, JSON Resume" />
-    <meta name="author" content="Akhil Dara" />
-    <meta name="application-name" content="CVAurum" />
-    <!-- max-image-preview:large is what lets a result show the résumé page
-         image at full width. Without it Google is documented to fall back to
-         a thumbnail-sized preview, which is the whole point of rendering a
-         1200px-wide picture of every design and every example. No
-         max-video-preview: the site has no video. No max-snippet either —
-         the résumé text itself is deliberately marked data-nosnippet, so a
-         longer snippet is not something these pages are asking for. -->
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="format-detection" content="telephone=no" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0b0d12" media="(prefers-color-scheme: dark)" />
-    <link rel="canonical" href="https://cvaurum.com/" />
-    <link rel="alternate" type="text/markdown" href="/llms.txt" title="CVAurum for machine readers" />
+
+    <title>Zachary Moulton — Firmware / Systems Software Engineer</title>
+    <meta
+      name="description"
+      content="Zachary Moulton — firmware and systems software engineer (8+ years of low-level C/C++ for custom silicon and SSD firmware). Vancouver, BC."
+    />
+    <meta name="author" content="Zachary Moulton" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://cv.moults31.dev/" />
 
     <!-- Open Graph (link previews) -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Free Open-Source ATS Resume Builder — CVAurum" />
-    <meta property="og:description" content="Free, open-source résumé builder in your browser: 75 templates, an ATS check, and accessible PDF/UA export with WCAG AA contrast. No sign-up, no server." />
-    <meta property="og:url" content="https://cvaurum.com/" />
-    <meta property="og:image" content="https://cvaurum.com/og.png" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="The CVAurum mark and name, the words no account, no server, no tracking, the line: a resume this beautiful never leaves your browser, the number of designs and example resumes, and four real resume pages fanned beside them." />
-    <meta property="og:site_name" content="CVAurum" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Zachary Moulton — Firmware / Systems Software Engineer" />
+    <meta
+      property="og:description"
+      content="Firmware and systems software engineer: low-level C/C++ for custom silicon and SSD firmware. Vancouver, BC."
+    />
+    <meta property="og:url" content="https://cv.moults31.dev/" />
+    <meta property="og:locale" content="en_CA" />
 
-    <meta property="og:image:secure_url" content="https://cvaurum.com/og.png" />
-    <link rel="alternate" hreflang="en" href="https://cvaurum.com/" />
-    <link rel="alternate" hreflang="x-default" href="https://cvaurum.com/" />
-    <meta name="format-detection" content="telephone=no" />
-    <!-- The boot splash is a fixed, full-screen overlay that React removes on
-         mount. With no JavaScript nothing ever removes it, so it sat on top of
-         the <noscript> block and of the pre-rendered HTML in #root — a reader
-         without scripts saw "Loading CVAurum…" and nothing else, for ever.
-         (A crawler that does not run scripts parses rather than paints, so this
-         never affected indexing; a person without them saw a blank screen.) -->
-    <noscript><style>#boot-splash{display:none !important}</style></noscript>
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Zachary Moulton — Firmware / Systems Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Firmware and systems software engineer: low-level C/C++ for custom silicon and SSD firmware. Vancouver, BC."
+    />
 
-    <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Free Open-Source ATS Resume Builder — CVAurum" />
-    <meta name="twitter:description" content="Free, open-source résumé builder in your browser: 75 templates, an ATS check, and accessible PDF/UA export with WCAG AA contrast. No sign-up, no server." />
-    <meta name="twitter:image" content="https://cvaurum.com/og.png" />
-    <meta name="twitter:image:alt" content="The CVAurum mark and name, the words no account, no server, no tracking, the line: a resume this beautiful never leaves your browser, the number of designs and example resumes, and four real resume pages fanned beside them." />
-
-    <!-- Structured data: rich result for the app -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "CVAurum",
-      "description": "CVAurum is a 100% client-side, open-source, privacy-first resume builder. Build ATS-ready resumes entirely in your browser with no server, no account, and no tracking. Includes 68 premium data-driven templates, local PDF résumé import (with on-device OCR), a deterministic ATS score, job-description keyword matching, and exports to crisp vector PDF (tagged PDF/UA-1 and archival PDF/A-2B, with every design's text meeting WCAG 2.2 AA contrast), WYSIWYG Word, and JSON Resume.",
-      "url": "https://cvaurum.com/",
-      "softwareVersion": "3.0.0",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Any (runs in the browser)",
-      "browserRequirements": "Requires JavaScript. Works fully offline.",
-      "image": "https://cvaurum.com/og.png",
-      "screenshot": "https://cvaurum.com/og.png",
-      "license": "https://www.gnu.org/licenses/agpl-3.0.html",
-      "isAccessibleForFree": true,
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "author": { "@type": "Person", "name": "Akhil Dara" },
-      "codeRepository": "https://github.com/akhil-dara/cvaurum",
-      "softwareHelp": "https://github.com/akhil-dara/cvaurum",
-      "featureList": [
-        "75 premium templates",
-        "Built-in deterministic ATS check with job-description keyword matching",
-        "Import an existing PDF résumé, read on your own device",
-        "Export to crisp vector PDF, Word (.docx) and JSON Resume",
-        "Works fully offline — self-hosted fonts, no external requests",
-        "No account, no server, no tracking"
-      ]
-    }
-    </script>
-
-    <!-- Site identity -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "CVAurum",
-      "alternateName": "CVAurum Resume Builder",
-      "url": "https://cvaurum.com/",
-      "description": "Free, open-source, 100% client-side resume builder. Build ATS-ready resumes in your browser — no account, no server, no tracking.",
-      "inLanguage": "en",
-      "publisher": {
-        "@type": "Organization",
-        "name": "CVAurum",
-        "url": "https://cvaurum.com/",
-        "logo": "https://cvaurum.com/icon-512.png",
-        "sameAs": ["https://github.com/akhil-dara/cvaurum"]
-      }
-    }
-    </script>
-
-    <!-- FAQ rich result — mirrors the visible FAQ on the homepage -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How do I know my data is really private?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Because you can check. CVAurum runs entirely in your browser — your resume is stored locally and never sent anywhere. There's no account, no server, and no analytics. Open your browser's network tab and you'll see zero outbound requests, even for fonts, which we self-host." }
-        },
-        {
-          "@type": "Question",
-          "name": "If it's free and open source, what's the catch?",
-          "acceptedAnswer": { "@type": "Answer", "text": "There isn't one. CVAurum is open source under the AGPL-3.0 and the full source is on GitHub. There's no paid tier, no export paywall, and no data to monetize because we never collect any. Fork it, self-host it, or run it offline forever." }
-        },
-        {
-          "@type": "Question",
-          "name": "Is the ATS score real, or AI guesswork?",
-          "acceptedAnswer": { "@type": "Answer", "text": "It's deterministic, not a guess. The same resume and job description always produce the same score, and it shows exactly which keywords matched and which are missing — so you can fix your resume with confidence." }
-        },
-        {
-          "@type": "Question",
-          "name": "Where is my data stored?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Only in your browser, using local storage. Nothing is sent anywhere. Clear your browser data and it's gone — so use Backup to keep a copy." }
-        },
-        {
-          "@type": "Question",
-          "name": "Will my résumé pass ATS scans?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The exported PDF and Word files use real, selectable text (not an image), and there's a built-in ATS check that scores structure and keyword coverage against a job description." }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I move my résumé to another computer?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Export a full backup (one file) or a single JSON Resume file, then import it in any browser." }
-        },
-        {
-          "@type": "Question",
-          "name": "Do I need to create an account?",
-          "acceptedAnswer": { "@type": "Answer", "text": "No. There's no sign-up, no email, and no login — open CVAurum and start editing immediately. Most builders make you register before you can even see the editor; CVAurum never does." }
-        },
-        {
-          "@type": "Question",
-          "name": "What's the difference between a CV and a resume?",
-          "acceptedAnswer": { "@type": "Answer", "text": "A resume is a concise, one-to-two page summary tailored to a specific job (common in the US). A CV is a longer, comprehensive record of your academic and professional history (standard in academia and much of Europe). CVAurum builds both — pick a compact template for a resume, or add sections for a full CV." }
-        },
-        {
-          "@type": "Question",
-          "name": "Are the links in my PDF clickable?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes, by default — they are real clickable regions in the file, not underlined words. Each link also keeps its display text separate from its destination, so it can read Portfolio or Verify while pointing anywhere: a project can carry several named links, and a certification or award can end its line with a short Verify (printed as small tags, or as plain words if you prefer) — with an issuer badge beside the name if you add one. Where a link prints as a word, that word is also the control — click it on the page and the same card opens. The Word file and the ATS preview say the same thing the page does, and Word gets real hyperlinks. If you are printing on paper or submitting somewhere a live link is unwelcome, one switch in Design turns clickability off while keeping the text." }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I edit on my phone?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes. The drag-and-drop canvas is a desktop surface, so on a phone the form panel is the editor — and everything the canvas offers is reachable there: contact icons, section heading links, and each section's full style sheet (heading style, skills layout, badge size and shape, bullets) opens as a bottom sheet. Nothing scrolls sideways, and your work syncs to the same resume you edit on a laptop." }
-        },
-        {
-          "@type": "Question",
-          "name": "What file formats can I download?",
-          "acceptedAnswer": { "@type": "Answer", "text": "A crisp vector PDF with real, selectable text; an editable Word (.docx) that mirrors your template; and the open JSON Resume format. Every export is free and unlimited — no paywall, no watermark." }
-        },
-        {
-          "@type": "Question",
-          "name": "Is the PDF archival quality?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes — and accessible. Every export conforms to both PDF/A-2B (the ISO standard for long-term archiving, with all fonts and an sRGB colour profile embedded) and PDF/UA-1 (the accessibility standard), checked against the veraPDF reference validator. It is fully tagged, so a screen reader reads your headings, paragraphs and bullet lists as real structure — in logical order, so your name comes first even on sidebar layouts." }
-        },
-        {
-          "@type": "Question",
-          "name": "Is the text on my résumé easy to read for everyone?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes, and it is measured rather than assumed. Every design’s text meets WCAG 2.2 AA contrast at its defaults, checked on the exported PDF against what each word actually stands on — coloured headers, bands, gradients, art and cards included. If a colour you choose falls short, a chip over the page says so, names the setting responsible and offers the nearest colour that passes everywhere that setting paints; nothing changes until you click." }
-        },
-        {
-          "@type": "Question",
-          "name": "How long should my resume be?",
-          "acceptedAnswer": { "@type": "Answer", "text": "For most roles, one page — two if you have 10+ years of experience. CVAurum auto-fits your content to a single page when it's close, and shows live page-break guides so you always know where you stand." }
+    <noscript>
+      <style>
+        #boot-splash {
+          display: none !important;
         }
-      ]
-    }
-    </script>
+      </style>
+    </noscript>
   </head>
   <body class="h-full bg-background text-foreground antialiased">
     <div id="root" class="h-full"></div>
     <noscript>
-      <main style="max-width:760px;margin:0 auto;padding:48px 20px;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.6">
-        <h1>CVAurum — the free, open-source resume builder that runs entirely in your browser</h1>
-        <p>CVAurum is a 100% client-side resume studio. Build a beautiful, ATS-ready resume with live WYSIWYG editing, score it against any job description, and export a crisp vector PDF, a WYSIWYG Word document, or JSON Resume — all without an account, a server, or a single tracking pixel. Your data never leaves your device. Free, forever, and open source under the AGPL-3.0.</p>
-        <h2>100% private and local-first</h2>
-        <p>No account, no sign-up, no server, no analytics. Every resume lives in your browser's storage on your own machine. Back up and restore your whole library to a single file whenever you like.</p>
-        <h2>75 premium templates</h2>
-        <p>Choose from 75 professionally designed templates and edit directly on the page — what you see is exactly what you export.</p>
-        <h2>Import your existing PDF résumé</h2>
-        <p>Already have a resume? Drop in the PDF and CVAurum rebuilds it into editable sections right in your browser — nothing is uploaded. Scanned or image-only PDFs are read with on-device OCR.</p>
-        <h2>Built-in ATS score and keyword matching</h2>
-        <p>A deterministic, on-device ATS checker scores your resume and matches it against the keywords in any job description, so you can tailor every application with confidence.</p>
-        <h2>Crisp exports: PDF, Word, and JSON Resume</h2>
-        <p>Export a vector PDF with selectable text, a WYSIWYG Word (.docx) that mirrors the design, or the open JSON Resume format.</p>
-        <h2>True offline with self-hosted fonts</h2>
-        <p>All fonts are self-hosted, so CVAurum makes zero external network requests and works fully offline as an installable app.</p>
-        <p>CVAurum is open source under the AGPL-3.0 — view the code at <a href="https://github.com/akhil-dara/cvaurum">github.com/akhil-dara/cvaurum</a>. This app requires JavaScript; please enable it to start building.</p>
+      <main style="max-width: 720px; margin: 0 auto; padding: 48px 20px; font-family: system-ui, sans-serif; line-height: 1.6">
+        <h1>Zachary Moulton — Firmware / Systems Software Engineer</h1>
+        <p>
+          Firmware and systems software engineer with 8+ years writing low-level C/C++ for custom silicon and SSD
+          firmware. Vancouver, BC. Email
+          <a href="mailto:moults31@moults31.dev">moults31@moults31.dev</a>.
+        </p>
+        <p>This résumé needs JavaScript to render the page and build the PDF. Please enable it.</p>
       </main>
     </noscript>
     <!-- Boot splash, replaced once React mounts -->
-    <div id="boot-splash" style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#0b0d12;color:#e6e8ee;font-family:Inter,system-ui,sans-serif;z-index:9999">
-      <div style="display:flex;flex-direction:column;align-items:center;gap:16px">
-        <!-- The brand mark, the same one as icon.svg and the favicon, inline so the
-             splash costs no request; the old splash drew a different mark. -->
-        <svg width="64" height="64" viewBox="0 0 1200 1200" style="border-radius:14px;filter:drop-shadow(0 8px 30px rgba(214,166,46,.35));animation:bootpulse 1.6s ease-in-out infinite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <defs>
-          <linearGradient id="bootGold" gradientUnits="userSpaceOnUse" x1="716.863" y1="737.752" x2="833.237" y2="1262.5">
-          <stop class="stop0" offset="0" stop-opacity="1" stop-color="rgb(185,144,70)"/>
-          <stop class="stop1" offset="1" stop-opacity="1" stop-color="rgb(255,255,219)"/>
-          </linearGradient>
-          </defs>
-          <rect width="1200" height="1200" rx="270" fill="#fbf7ee"/>
-          <svg x="120" y="120" width="960" height="960" viewBox="518.3 522.4 1010 1010">
-          <path fill="#0a0c12" d="M 869.7 640.3 C 905.4 639.5 943.2 640.0 979.0 640.0 L 1168.0 640.1 L 1371.6 1138.2 L 1448.6 1326.9 L 1471.8 1383.9 C 1475.6 1392.9 1481.7 1405.9 1484.5 1414.8 C 1381.8 1414.2 1279.2 1414.2 1176.6 1414.8 L 1059.5 1117.3 C 1048.4 1089.6 1037.8 1060.5 1026.3 1033.1 C 1025.2 1029.2 1022.5 1023.4 1020.9 1019.5 C 1007.4 985.8 995.5 951.0 980.5 917.8 C 979.4 913.5 973.9 900.8 972.1 896.3 L 954.0 851.5 C 947.8 836.1 931.5 791.4 924.7 778.9 L 924.0 779.5 C 923.9 782.8 927.9 790.0 929.6 793.7 L 929.0 794.6 C 922.1 793.1 918.9 788.4 913.2 784.8 C 885.3 767.1 867.2 739.6 840.1 721.0 C 842.0 716.2 843.8 713.5 842.7 709.1 C 851.2 687.3 862.3 661.9 869.7 640.3 z"/>
-          <path fill="#8a5a12" d="M 842.7 709.1 C 851.2 687.3 862.3 661.9 869.7 640.3 C 874.5 651.0 879.2 662.9 883.3 673.9 C 896.4 709.0 911.8 743.8 924.7 778.9 L 924.0 779.5 C 923.9 782.8 927.9 790.0 929.6 793.7 L 929.0 794.6 C 922.1 793.1 918.9 788.4 913.2 784.8 C 885.3 767.1 867.2 739.6 840.1 721.0 C 842.0 716.2 843.8 713.5 842.7 709.1 z"/>
-          <path fill="url(#bootGold)" d="M 842.7 709.1 C 843.8 713.5 842.0 716.2 840.1 721.0 C 867.2 739.6 885.3 767.1 913.2 784.8 C 918.9 788.4 922.1 793.1 929.0 794.6 L 929.6 793.7 C 927.9 790.0 923.9 782.8 924.0 779.5 L 924.7 778.9 C 931.5 791.4 947.8 836.1 954.0 851.5 L 972.1 896.3 C 973.9 900.8 979.4 913.5 980.5 917.8 C 995.5 951.0 1007.4 985.8 1020.9 1019.5 C 1022.5 1023.4 1025.2 1029.2 1026.3 1033.1 L 1023.4 1038.9 C 989.2 1124.9 954.2 1210.6 918.4 1296.0 C 902.5 1333.9 885.5 1378.4 868.4 1414.7 C 766.3 1415.3 664.3 1415.2 562.2 1414.4 C 573.1 1379.7 586.3 1349.5 600.6 1316.1 C 602.1 1306.9 614.2 1278.8 618.5 1268.1 C 632.2 1233.3 646.3 1198.7 660.7 1164.2 C 662.0 1159.4 667.8 1145.6 669.8 1140.5 C 677.0 1121.7 684.5 1103.0 692.4 1084.4 C 699.6 1067.2 706.7 1047.1 714.4 1030.6 C 714.7 1026.7 727.9 997.4 730.6 991.2 C 736.4 985.3 739.8 966.6 745.4 959.7 C 753.0 966.3 778.9 971.5 786.8 981.0 C 793.7 989.3 801.7 989.8 809.0 996.7 L 810.7 996.4 C 810.7 994.7 759.4 936.4 759.7 924.4 C 759.8 918.4 770.2 902.5 770.4 893.8 C 771.5 889.3 784.4 858.2 786.7 853.7 L 819.1 770.9 C 826.4 750.6 834.8 729.2 842.7 709.1 z"/>
-          <path fill="#0a0c12" d="M 1008.5 1059.0 C 1013.0 1054.1 1017.8 1045.3 1023.4 1038.9 C 989.2 1124.9 954.2 1210.6 918.4 1296.0 C 902.5 1333.9 885.5 1378.4 868.4 1414.7 C 766.3 1415.3 664.3 1415.2 562.2 1414.4 C 573.1 1379.7 586.3 1349.5 600.6 1316.1 C 603.0 1313.4 619.9 1284.1 624.5 1277.2 C 641.5 1251.4 662.8 1228.7 687.4 1210.0 C 693.8 1205.2 701.6 1201.1 707.6 1196.5 L 709.0 1195.4 C 759.7 1168.1 787.4 1160.2 844.1 1155.3 C 859.1 1154.0 876.6 1151.9 890.8 1146.7 C 915.1 1139.3 961.0 1114.9 977.2 1095.7 C 985.4 1089.8 1003.9 1067.8 1008.5 1059.0 z"/>
-          <path fill="#ffffff" d="M 890.8 1146.7 L 889.4 1146.0 C 890.0 1144.7 906.0 1140.1 909.1 1137.3 C 910.6 1109.3 876.0 1086.1 861.5 1065.5 C 855.9 1057.6 851.1 1049.8 846.5 1041.2 C 845.5 1040.9 844.4 1040.5 843.4 1040.2 L 842.4 1038.0 C 844.8 1027.0 838.4 1027.7 840.5 1022.3 C 852.0 1019.2 899.4 1067.2 911.6 1074.0 C 928.3 1083.3 946.0 1096.1 962.5 1105.2 C 965.6 1104.3 972.9 1097.4 975.8 1094.8 L 977.2 1095.7 C 961.0 1114.9 915.1 1139.3 890.8 1146.7 z"/>
-          <path fill="#ffffff" d="M 819.0 1007.0 C 820.6 1007.2 827.1 1008.6 828.0 1008.5 C 833.6 1007.9 835.7 1009.8 832.5 1016.5 C 823.6 1010.2 813.3 1013.9 819.0 1007.0 z"/>
-          </svg>
-        </svg>
-        <div style="font-size:14px;letter-spacing:.04em;opacity:.7">Loading CVAurum…</div>
+    <div
+      id="boot-splash"
+      style="
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f7f7f8;
+        color: #1b2330;
+        font-family: system-ui, sans-serif;
+        z-index: 9999;
+      "
+    >
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 14px">
+        <div
+          style="
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: #1e293b;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+          "
+        >
+          ZM
+        </div>
+        <div style="font-size: 14px; letter-spacing: 0.04em; opacity: 0.7">Loading résumé…</div>
       </div>
-      <style>@keyframes bootpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.75;transform:scale(.96)}}</style>
     </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -6,8 +6,8 @@
 import type { ResumeDocument } from '@/types/document'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { Link, useNavigate } from 'react-router-dom'
-import { ArrowRight, ChevronDown, FileText, FilePlus2, FileUp, Search, SlidersHorizontal, X } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { ChevronDown, FileText, FilePlus2, FileUp, Search, SlidersHorizontal, X } from 'lucide-react'
 import { useAppStore } from '@/store/useAppStore'
 import { useEditorStore } from '@/store/useEditorStore'
 import { createDocument } from '@/data/defaults'
@@ -332,13 +332,6 @@ export function SamplePicker({ onPick, onClose }: { onPick: (p: PickedSample) =>
           <p className="text-xs text-muted-foreground" aria-live="polite">
             {library ? `${shown.length} of ${library.length} examples` : 'Loading the examples…'}
           </p>
-          <Link
-            to="/examples"
-            onClick={onClose}
-            className="inline-flex items-center gap-1 text-xs text-primary hover:underline"
-          >
-            Read them in full <ArrowRight className="h-3 w-3" />
-          </Link>
         </div>
 
         {library && shown.length === 0 ? (

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
-import { BookOpen, FileText, Plus, FileUp, Copy, Trash2, MoreVertical, KanbanSquare, DatabaseBackup } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { FileText, Plus, FileUp, Copy, Trash2, MoreVertical, DatabaseBackup } from 'lucide-react'
 import { useAppStore } from '@/store/useAppStore'
 import { saveDoc, deleteDoc, requestDurability, getDurabilityStatus, type DurabilityStatus } from '@/lib/storage'
 import { exportFullBackup, importFullBackup } from '@/lib/backup'
@@ -232,22 +232,6 @@ export function Dashboard() {
           <Logo to="/" />
           <div className="flex items-center gap-1.5 sm:gap-2">
             <InstallButton className="btn-outline btn-sm h-10 sm:h-8" />
-            {/* Nothing inside the app led to the example library, so the only
-                way to the hundred and eight was to leave for the public site
-                and find it there. */}
-            <Link
-              className="btn-ghost btn-sm h-10 sm:h-8"
-              to="/examples"
-              title="Browse the résumé examples"
-              aria-label="Examples"
-            >
-              <BookOpen className="h-4 w-4" />
-              <span className="hidden sm:inline">Examples</span>
-            </Link>
-            <Link className="btn-ghost btn-sm h-10 sm:h-8" to="/tracker" title="Job Tracker" aria-label="Job Tracker">
-              <KanbanSquare className="h-4 w-4" />
-              <span className="hidden sm:inline">Job Tracker</span>
-            </Link>
             <div className="relative">
               <button
                 className="btn-ghost btn-sm h-10 sm:h-8"
